@@ -216,6 +216,14 @@ export async function reloadCommands() {
                                     return key;
                                 },
                             });
+                            
+                            // args.context
+                            Object.defineProperty(args, 'context', {
+                                enumerable: true,
+                                get: () => {
+                                    return context;
+                                },
+                            });
 
                             ego_helpers.updateCommandScriptArgumentsByExecutionContext(
                                 args, context,
